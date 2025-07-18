@@ -1,139 +1,265 @@
 <!DOCTYPE html>
-<html>
-<!--
-    Code inspired from https://github.com/clydedacruz/openstreetmap-wkt-playground
--->
-
+<html lang="en">
 <head>
-    <title>Catch The Bus - Azure SQL Sample</title>
-
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="IE=Edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serverless Full Stack Apps with Azure SQL</title>
+    
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+        }
+        .feature-card {
+            border: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            margin-bottom: 20px;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        .architecture-section {
+            background-color: #f8f9fa;
+            padding: 60px 0;
+        }
+        .cta-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            padding: 12px 30px;
+            margin: 10px;
+            border-radius: 25px;
+            transition: transform 0.3s ease;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .tech-badge {
+            background-color: #e9ecef;
+            color: #495057;
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin: 5px;
+            display: inline-block;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#"><strong>Azure Full Stack Apps</strong></a>
+            <div class="navbar-nav ml-auto">
+                <a class="nav-link btn btn-primary text-white mr-2" href="map.html">Bus Tracker Demo</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-4 mb-4">Build Serverless, Full Stack Applications in Azure</h1>
+                    <p class="lead mb-4">
+                        Learn how to create, build, and deploy modern full stack applications in Azure leveraging 
+                        the language of your choice (Python, Node.js, or .NET) and with a Vue.js frontend.
+                    </p>
+                    <p class="mb-4">
+                        Using a real-world scenario of trying to catch the bus, you will learn how to build a solution 
+                        that leverages Azure SQL Database, Azure Functions, Azure Static Web Apps, Logic Apps, 
+                        Visual Studio Code and GitHub Actions.
+                    </p>
+                    <div class="mt-4">
+                        <a href="https://aka.ms/azuremodernapps" target="_blank" class="btn btn-light cta-button">
+                            📚 Microsoft Learn Path
+                        </a>
+                        <a href="https://youtu.be/XBxBC959tLg" target="_blank" class="btn btn-light cta-button">
+                            🎥 YouTube Tutorial
+                        </a>
+                        <a href="map.html" class="btn btn-light cta-button">
+                            🚌 Try the Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5">
+                    <h2 class="mb-4">Technologies Featured</h2>
+                    <p class="lead">This project demonstrates modern cloud-native development using cutting-edge Azure services</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card feature-card h-100">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">🗄️ Database & Storage</h5>
+                            <p class="card-text">Azure SQL Database with modern database capabilities and geospatial features</p>
+                            <span class="tech-badge">Azure SQL Database</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card feature-card h-100">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">⚡ Serverless Compute</h5>
+                            <p class="card-text">Azure Functions for scalable, event-driven backend API development</p>
+                            <span class="tech-badge">Azure Functions</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card feature-card h-100">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">🌐 Static Web Apps</h5>
+                            <p class="card-text">Azure Static Web Apps for hosting and global distribution</p>
+                            <span class="tech-badge">Azure Static Web Apps</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card feature-card h-100">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">🔄 CI/CD & DevOps</h5>
+                            <p class="card-text">GitHub Actions for continuous integration and deployment</p>
+                            <span class="tech-badge">GitHub Actions</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card feature-card h-100">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">🛠️ Development Tools</h5>
+                            <p class="card-text">Visual Studio Code with integrated development experience</p>
+                            <span class="tech-badge">VS Code</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card feature-card h-100">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">🔗 Integration</h5>
+                            <p class="card-text">Azure Logic Apps and Web Apps for seamless integration</p>
+                            <span class="tech-badge">Azure Logic Apps</span>
+                            <span class="tech-badge">Azure Web Apps</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture Section -->
+    <section class="architecture-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="mb-4">Solution Architecture</h2>
+                    <p class="lead mb-4">
+                        Discover how all the pieces fit together in this comprehensive serverless architecture
+                    </p>
+                    <div class="text-center mb-4">
+                        <img src="../../documents/catch-the-bus-architecture.svg" 
+                             alt="Solution Architecture Diagram" 
+                             class="img-fluid" 
+                             style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    </div>
+                    <p class="text-muted">
+                        The architecture demonstrates a complete serverless solution using Azure services 
+                        for data storage, compute, hosting, and integration.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Getting Started Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="mb-4">Getting Started</h2>
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="card feature-card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title">📚 Interactive Tutorial</h5>
+                                    <p class="card-text">
+                                        Learn at your own pace with the Microsoft Learn interactive tutorial 
+                                        that guides you through building the entire solution.
+                                    </p>
+                                    <a href="https://aka.ms/azuremodernapps" target="_blank" class="btn btn-primary">
+                                        Start Learning
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card feature-card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title">🎥 Video Walkthrough</h5>
+                                    <p class="card-text">
+                                        Watch the authors discuss the architecture, key points, and details 
+                                        of each technology used and design decisions made.
+                                    </p>
+                                    <a href="https://youtu.be/XBxBC959tLg" target="_blank" class="btn btn-primary">
+                                        Watch Video
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="mb-4">Try the Live Demo</h2>
+                    <p class="lead mb-4">
+                        Experience the "Catch the Bus" application that demonstrates real-time geospatial 
+                        data processing and visualization using Azure services.
+                    </p>
+                    <a href="map.html" class="btn btn-primary btn-lg cta-button">
+                        🚌 Launch Bus Tracker Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; Microsoft Corporation. This project is open source.</p>
+                </div>
+                <div class="col-md-6 text-md-right">
+                    <p>Built with ❤️ using Azure services</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
-    <!-- Add references to the OpenLayers JavaScript and CSS files. -->
-    <link rel="stylesheet" href="https://openlayers.org/en/v4.6.5/css/ol.css" type="text/css">
-
-    <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
-    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
-    <script src="https://openlayers.org/en/v4.6.5/build/ol.js"></script>
-
-    <script type='text/javascript'>
-        var raster;
-        var source;
-        var vector;
-        var map;
-        var typeSelect;
-        var draw;
-        var features = new ol.Collection();
-        var format = new ol.format.WKT();
-        var current_shape = "point";
-
-        var fill = new ol.style.Fill({
-            color: 'rgba(167, 122, 210, 0.2)'
-        });
-
-        var stroke = new ol.style.Stroke({
-            color: '#0404B4',
-            width: 2
-        });
-
-        var styles = [
-            new ol.style.Style({
-                image: new ol.style.Circle({
-                    fill: fill,
-                    stroke: stroke,
-                    radius: 5
-                }),
-                fill: fill,
-                stroke: stroke
-            })
-        ];
-
-        function init() {           
-            raster = new ol.layer.Tile({
-                source: new ol.source.OSM()
-            });
-
-            map = new ol.Map({
-                layers: [raster],
-                target: 'map',
-                view: new ol.View({
-                    center: [0, 0],
-                    zoom: 2
-                })
-            });
-
-            // Sample URL: 
-            // http://localhost:3000/azure-static-web-app/client/index.html?rid=100113&gid=1
-            const params = new URLSearchParams(location.search);
-            const rid = params.get('rid');
-            const gid = params.get('gid');
-            const apiUrl = `/api/bus-data?rid=${rid}&gid=${gid}`;
-            $.getJSON(apiUrl, data => {
-                //console.log(data);
-                plotWKT(data);                
-            });
-        }
-
-        function plotWKT(data) {
-            var f1, f2;
-
-            if (data.busData == [] || data.geoFence == [])
-                return;
-            try {
-                f1 = format.readFeature(data.geoFence);
-                f2 = format.readFeature(data.busData);
-            } catch (err) { }
-
-            features.clear();
-
-            // geoFence
-            if (f1)
-            {
-                f1.getGeometry().transform('EPSG:4326', 'EPSG:3857');
-                features.push(f1);
-            }
-            // busData
-            if (f2)
-            {
-                f2.getGeometry().transform('EPSG:4326', 'EPSG:3857');
-                features.push(f2);
-            }
-
-            vector = new ol.layer.Vector({
-                source: new ol.source.Vector({ features: features }),
-                style: styles
-            });
-            map.addLayer(vector);
-            
-            derived_feature = f2 ?? f1;
-            extent = derived_feature.getGeometry().getExtent();
-            minx = derived_feature.getGeometry().getExtent()[0];
-            miny = derived_feature.getGeometry().getExtent()[1];
-            maxx = derived_feature.getGeometry().getExtent()[2];
-            maxy = derived_feature.getGeometry().getExtent()[3];
-            centerx = (minx + maxx) / 2;
-            centery = (miny + maxy) / 2;
-            map.setView(new ol.View({
-                center: [centerx, centery],
-                zoom: 10
-            }));            
-            map.getView().fit(extent, map.getSize());            
-        }
-    </script>
-</head>
-
-<body onload="init()">
-    <div class="container-fluid" style="padding:0px;border:0px;height:100%">
-        <div class="span12">
-            <div id="map" class="map" style="z-index: 0"></div>
-        </div>
-    </div>
 </body>
-
 </html>
